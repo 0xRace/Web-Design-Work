@@ -25,3 +25,11 @@ body {
   max-width: 960px;
   margin-top: 25px;
 }
+
+.header{
+  display: block;
+  padding: 15;
+  border-radius: 4;
+  margin: 15;
+  align-items: center;
+}
