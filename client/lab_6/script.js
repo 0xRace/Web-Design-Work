@@ -39,7 +39,7 @@ async function mainEvent() {
 
   const results = await fetch(
     '/api/foodServicesPG'
-  ); // This accesses some data from our API
+  ); // This accesses so  me data from our API
   const arrayFromJson = await results.json(); // This changes it into data we can use - an object
  
   // console.table(arrayFromJson.data); // this is called "dot notation"
