@@ -77,7 +77,7 @@ async function mainEvent() {
       const selectResto = currentArray.filter((item) => {
         const lowerzip = item.zip.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
-        return lowerName.includes(lowerValue);
+        return lowerzip.includes(lowerValue);
       });
       console.log(selectResto);
       createHtmlList(selectResto);
