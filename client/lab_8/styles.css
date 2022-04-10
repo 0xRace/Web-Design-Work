@@ -13,12 +13,13 @@ body {
   width: 1250px;
 }
 
-#map { height: 180px; }
+#map { height: 360px; }
 
 /* Page Layout */
 .columns {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .wrapper {
