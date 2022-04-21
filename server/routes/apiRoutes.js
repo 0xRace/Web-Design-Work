@@ -4,6 +4,8 @@ import sequelize from 'sequelize';
 import chalk from 'chalk';
 import fetch from 'node-fetch';
 
+import foodServiceRoutes from './foodServiceRoutes.js';
+
 import db from '../database/initializeDB.js';
 import hallIdQuery from '../controllers/diningHall.js';
 
@@ -16,6 +18,7 @@ router.get('/', (req, res) => {
   // res.send('Welcome to the UMD Dining API!');
 });
 
+router.use('/foodServicesPG', foodServiceRoutes)
 // /////////////////////////////////
 // Food Inspection Set Demos
 // /////////////////////////////////
@@ -59,6 +62,23 @@ router.route('/foodServicesPG')
       res.json({error: 'Something went wrong on the server'});
     }
   });
+router.route('/foodServicesPG/:id')
+  .get(async (req, res) => {
+    try {
+      // check to see if id is a number
+      const {id} = req.params; // get id in destructured way 
+      const url = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
+      const data = await fetch(url);
+      const json = await data.json();
+      console.log(json);
+
+      res.json({data: json[id]});
+    }
+    catch (err) {
+      console.log(err);
+      res.json({message: 'something wrong'});
+    }
+  })
 
 router.route('/sqlDemo')
   .post(async (req, res) => {

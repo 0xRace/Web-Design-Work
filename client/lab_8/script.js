@@ -69,18 +69,18 @@ function refreshList (target, storage) {
     location.reload();
   });
 }
-// function inputListener(target) {
-//   target.addEventListener('input',async (event) => {
-//     console.log(event.target.value);
-//     const selectResto = storedDataArray.filter((item) => {
-//       const lowerName = item.name.toLowerCase();
-//       const lowerValue = event.target.value.toLowerCase();
-//       return lowerName.includes(lowerValue);
-//     });
-//     console.log(selectResto);
-//     createHtmlList(selectResto);
-//   });
-// }
+function inputListener(target) {
+  target.addEventListener('input',async (event) => {
+    console.log(event.target.value);
+    const selectResto = storedDataArray.filter((item) => {
+      const lowerName = item.name.toLowerCase();
+      const lowerValue = event.target.value.toLowerCase();
+      return lowerName.includes(lowerValue);
+    });
+    console.log(selectResto);
+    createHtmlList(selectResto);
+  });
+}
 async function mainEvent() { // the async keyword means we can make API requests
   const form = document.querySelector('.main_form'); // change this selector to match the id or classname of your actual form
   const submit = document.querySelector('.submit_button');
@@ -103,6 +103,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     submit.style.display = 'block';
 
     let currentArray = [];
+    // inputListener(resto);
     resto.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
@@ -131,7 +132,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       console.log(selectResto);
       createHtmlList(selectResto);
     });
-    // inputListener(resto);
+
     form.addEventListener('submit', async (submitEvent) => {
       // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
