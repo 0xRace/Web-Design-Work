@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import fetch from 'node-fetch';
 
 import foodServiceRoutes from './foodServiceRoutes.js';
+import sqlDemoRoutes from './sqlDemoRoutes.js';
 
 import db from '../database/initializeDB.js';
 import hallIdQuery from '../controllers/diningHall.js';
@@ -18,50 +19,8 @@ router.get('/', (req, res) => {
   // res.send('Welcome to the UMD Dining API!');
 });
 
-router.use('/foodServicesPG', foodServiceRoutes)
-// /////////////////////////////////
-// Food Inspection Set Demos
-// /////////////////////////////////
-router.route('/foodServicesPG')
-  .get(async (req, res) => {
-    try {
-      const url = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
-      const data = await fetch(url);
-      const json = await data.json();
-      console.log(json);
+router.use('/foodServicesPG', foodServiceRoutes);
 
-      res.json({data: json});
-    } catch (err) {
-      console.log(error);
-      res.json({error: error});
-    }
-  })
-  .put((req, res) => {
-    try {
-      res.json({message: 'put FoodServices endpoint'});
-    } catch (err) {
-      console.log(error);
-      res.json({error: 'Something went wrong on the server'});
-    }
-  })
-  .post((req, res) => {
-    try {
-      console.log('Touched post endpoint', req.body);
-      console.log(req.body?.resto);
-      res.json({message: 'post FoodServices endpoint'});
-    } catch (err) {
-      console.log(error);
-      res.json({error: 'Something went wrong on the server'});
-    }
-  })
-  .delete((req, res) => {
-    try {
-      res.json({message: 'delete FoodServices endpoint'});
-    } catch (err) {
-      console.log(error);
-      res.json({error: 'Something went wrong on the server'});
-    }
-  });
 router.route('/foodServicesPG/:id')
   .get(async (req, res) => {
     try {
@@ -80,22 +39,11 @@ router.route('/foodServicesPG/:id')
     }
   })
 
-router.route('/sqlDemo')
-  .post(async (req, res) => {
-    try {
-      console.log(req.body);
-      console.log(req.body?.dining);
-      const hallId = req.body?.dining || 0;
-      const result = await db.sequelizeDB.query(hallIdQuery, {
-        replacements: { hall_id: hallId },
-        type: sequelize.QueryTypes.SELECT
-      });
-      res.json({data: result});
-    } catch (err) {
-      console.log(err);
-      res.send({message: 'Something went wrong on the SQL request'});
-    }
-  });
+router.use('/sqlDemo', sqlDemoRoutes)
+// pause at 18:51 april 12 
+// /////////////////////////////////
+// Food Inspection Set Demos
+// /////////////////////////////////
 
 // /////////////////////////////////
 // ////WholeMeal demos////////
