@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+   <div class="wrapper">
+       <div class="container">
+           <div class = "box is-size-4 has-background-warning">Encryption Project</div>
+           <div class = "columns is-mobile is-centered is-vcentered">
+               <div class = "column is-narrow">
+                   <div class = "box">
+                       <form class="main_form" >
+                           <div class="field">
+                               <label for="message" class="label">Message</label>
+                               <div class="control">
+                                   <input type="text" name="message" id="message">
+                               </div>
+
+                               <label for="encryption_key" class="label">Encryption Key</label>
+                               <div class="control">
+                                   <input type="text" name="encryption_key" id="encryption_key">
+                               </div>
+                           </div>
+
+
+
+                           <button class="button encrypt_button is-success" type ="submit">
+                               Encrypt Message
+                           </button>
+                           <button class="button decrypt_button is-success" type ="submit">
+                            Decrypt Message
+                        </button>
+                          
+                       </form>
+                   </div>
+               </div>
+                <div class="column is-half is-vcentered">
+                    <div class="page_item page_item_wide box">
+                        <h2>Message Result</h2>
+                        <ul class="resto-list"></ul>
+                    </div>
+                </div>
+           </div>
+       </div>
+   </div>
+    <script src="./script.js"></script>
+</body>
+</html>
