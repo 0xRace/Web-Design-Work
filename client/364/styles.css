@@ -10,10 +10,16 @@ body {
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
     ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   background-color: darkslategray;
-  width: 1250px;
+
 }
 
+li {
+  word-break: break-all;
+}
 
+input {
+  min-width: -webkit-fill-available;
+}
 
 /* Page Layout */
 .columns {
@@ -37,9 +43,9 @@ body {
   margin: 15;
   align-items: center;
 }
-.page_item_wide{
+/* .page_item_wide{
   width: 640px;
-}
+} */
 .button{
   margin-top: 10px;
 }

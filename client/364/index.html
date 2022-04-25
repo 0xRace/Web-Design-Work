@@ -22,7 +22,7 @@
                                    <input type="text" name="message" id="message">
                                </div>
 
-                               <label for="encryption_key" class="label">Encryption Key</label>
+                               <label for="encryption_key" class="label">Encryption Key (Private, pkcs8 scheme)</label>
                                <div class="control">
                                    <input type="text" name="encryption_key" id="encryption_key">
                                </div>
@@ -36,19 +36,29 @@
                            <button class="button decrypt_button is-success" type ="submit">
                             Decrypt Message
                         </button>
+                        <button class="button update_button is-success" type ="submit">
+                            Update Private Key
+                        </button>
+                        <button class="button key_generation is-success" type ="submit">
+                            Key Generation
+                        </button>
                           
                        </form>
                    </div>
                </div>
                 <div class="column is-half is-vcentered">
                     <div class="page_item page_item_wide box">
-                        <h2>Message Result</h2>
-                        <ul class="resto-list"></ul>
+                        <h2><b>Message Result</b></h2>
+                        <ul class="message-result"></ul>
+                        <h2><b>Current Keys</b></h2>
+
+                        <ul class="keys-list"></ul>
                     </div>
                 </div>
            </div>
        </div>
    </div>
-    <script src="./script.js"></script>
+    <!-- <script src="./script.js"></script> -->
+    <script src="bundle.js"></script>
 </body>
 </html>
