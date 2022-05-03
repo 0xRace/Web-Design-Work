@@ -1,0 +1,1 @@
+export default (category) => {`SELECT * FROM meals WHERE ${category}`}

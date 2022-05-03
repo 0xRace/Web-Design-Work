@@ -86,9 +86,16 @@ async function mainEvent() { // the async keyword means we can make API requests
   const submit = document.querySelector('.submit_button');
 
   const resto = document.querySelector('#resto_name');
-  const zipcode = document.querySelector('#zipcode');
+  const category = document.querySelector('#category');
+  const catBtn = document.querySelector('#cat_submit');
+
+
   const refresh = document.querySelector('#refresh_list');
 
+  catBtn.addEventListener('click', async(event) => {
+    console.log(event.target);
+    console.log(category.value);
+  });
   const map = initMap('map');
   const retrievalVar = 'restaurants';
   submit.style.display = 'none';
@@ -116,22 +123,21 @@ async function mainEvent() { // the async keyword means we can make API requests
         return lowerName.includes(lowerValue);
       });
       console.log(selectResto);
-      createHtmlList(selectResto);
     });
 
-    zipcode.addEventListener('input', async(event) => {
-      console.log(event.target.value);
-      if (currentArray.length < 1) {
-        return;
-      }
-      const selectResto = currentArray.filter((item) => {
-        const lowerzip = item.zip.toLowerCase();
-        const lowerValue = event.target.value.toLowerCase();
-        return lowerzip.includes(lowerValue);
-      });
-      console.log(selectResto);
-      createHtmlList(selectResto);
-    });
+    // category.addEventListener('input', async(event) => {
+    //   console.log(event.target.value);
+    //   if (currentArray.length < 1) {
+    //     return;
+    //   }
+    //   const selectResto = currentArray.filter((item) => {
+    //     const lowerzip = item.zip.toLowerCase();
+    //     const lowerValue = event.target.value.toLowerCase();
+    //     return lowerzip.includes(lowerValue);
+    //   });
+    //   console.log(selectResto);
+    //   createHtmlList(selectResto);
+    // });
 
     form.addEventListener('submit', async (submitEvent) => {
       // async has to be declared all the way to get an await
