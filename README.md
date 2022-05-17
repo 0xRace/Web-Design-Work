@@ -12,9 +12,6 @@
 
     npm start
 <hr>
-
-Below are details of the API contained within this piece of labwork.
-
 <hr>
 
 ## REST API example using Sequelize
