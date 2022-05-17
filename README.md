@@ -44,7 +44,7 @@ Below are details of the API contained within this piece of labwork.
     </tr>
   </tbody>
 </table>
-
+API Endpoints from Coursework
 # Dining Hall
 
 ## Get list of Dining Halls
