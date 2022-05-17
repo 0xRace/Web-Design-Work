@@ -12,38 +12,12 @@
 
     npm start
 <hr>
-
-Below are details of the API contained within this piece of labwork.
-
 <hr>
 
-## REST API example using Sequelize
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>GET</td>
-      <td>Retrieves resources</td>
-    </tr>
-    <tr>
-      <td>POST</td>
-      <td>Creates resources</td>
-    </tr>
-    <tr>
-      <td>PUT</td>
-      <td>Changes and/or replaces resources or collections</td>
-    </tr>
-    <tr>
-      <td>DELETE</td>
-      <td>Deletes resources</td>
-    </tr>
-  </tbody>
-</table>
+
+
+## API Endpoints from Coursework
+
 
 # Dining Hall
 
